@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LunaOptimizer — Tu PC, como recién reiniciada sin reiniciar</title>
-<meta name="description" content="LunaOptimizer: limpieza rápida estilo reinicio, procesos al estilo PC Manager y limpieza profunda con Winapp2. Open source, MIT, un solo exe para Windows.">
+<meta name="description" content="LunaOptimizer: limpieza rápida estilo reinicio, procesos al estilo PC Manager, limpieza profunda con Winapp2, modo juego, salud del sistema y desinstalador. Seis pestañas, limpieza segura y sin cortar el video. Open source, MIT, un solo exe para Windows.">
 <meta name="theme-color" content="#0b0b0f">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 4 8 14v18c0 15 10 24 24 28 14-4 24-13 24-28V14L32 4z' fill='none' stroke='%234CC2FF' stroke-width='5' stroke-linejoin='round'/%3E%3Cpath d='M32 18v14m0 0 9-9m-9 9-9-9' fill='none' stroke='%234CC2FF' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -126,9 +126,9 @@ h1.hero-title{font-size:clamp(2.1rem,4.6vw,3.5rem);line-height:1.12;font-weight:
 .titlebar{display:flex;align-items:center;gap:9px;height:40px;padding:0 12px;background:#161616;border-bottom:1px solid #2a2a2a;font-size:12.5px;color:#ddd}
 .titlebar .win{margin-left:auto;display:flex;gap:14px;color:#777;font-size:11px}
 .appbody{display:flex;min-height:330px}
-.rail{width:64px;background:#151515;border-right:1px solid #262626;padding:14px 6px;display:flex;flex-direction:column;gap:6px}
-.railitem{font-size:9.5px;text-align:center;color:#8a8a8a;padding:9px 2px;border-radius:9px;transition:.25s;cursor:default}
-.railitem span{display:block;font-size:16px;margin-bottom:3px}
+.rail{width:64px;background:#151515;border-right:1px solid #262626;padding:12px 6px;display:flex;flex-direction:column;gap:4px}
+.railitem{font-size:9px;text-align:center;color:#8a8a8a;padding:7px 2px;border-radius:9px;transition:.25s;cursor:default}
+.railitem span{display:block;font-size:15px;margin-bottom:2px}
 .railitem.active{background:rgba(76,194,255,.12);color:var(--accent)}
 .appcontent{flex:1;padding:14px;display:flex;flex-direction:column;gap:10px;background:#1a1a1a}
 .acard{background:#242424;border:1px solid #2e2e2e;border-radius:12px;padding:13px 14px}
@@ -306,12 +306,12 @@ footer{border-top:1px solid var(--line);padding:44px 0 34px;background:#0a0a0e}
 
   <div class="wrap hero-in">
     <div class="hero-text">
-      <span class="badge"><span class="dot"></span> v1.0 · Open source · Licencia MIT</span>
+      <span class="badge"><span class="dot"></span> v1.3 · Open source · Licencia MIT</span>
       <h1 class="hero-title">Tu PC, como recién<br><span class="grad">reiniciada… sin reiniciar</span></h1>
       <p class="hero-sub">
         <b>Limpieza rápida</b> que cierra tus aplicaciones, borra temporales y libera la RAM en segundos.
-        Procesos al estilo <b>PC Manager</b> y limpieza profunda con <b>Winapp2</b> — todo en una ventana de
-        456×664 px.
+        Seis pestañas — <b>Inicio</b>, <b>Procesos</b>, <b>Limpieza</b>, <b>Juegos</b>, <b>Salud</b> y <b>Apps</b> —
+        en una sola ventana de 456×664 px.
       </p>
       <div class="cta">
         <a class="btn primary" href="https://github.com/juanmarin19/LunaOptimizer/releases/latest" target="_blank" rel="noopener">
@@ -325,12 +325,12 @@ footer{border-top:1px solid var(--line);padding:44px 0 34px;background:#0a0a0e}
         <li>Windows 10 / 11 · x64</li>
         <li>Un solo .exe</li>
         <li>.NET 8 · WPF</li>
-        <li>Sin submódulos, sin instalador pesado</li>
+        <li>No corta el video, los juegos ni la música</li>
       </ul>
     </div>
 
     <div class="tilt-wrap" id="tiltWrap">
-      <div class="float-chip chip1"><span class="ic">✓</span><div>42 procesos cerrados<small>como un reinicio real</small></div></div>
+      <div class="float-chip chip1"><span class="ic">✓</span><div>6 apps cerradas<small>como un reinicio real</small></div></div>
       <div class="float-chip chip2"><span class="ic">⚡</span><div>+812 MB de RAM<small>EmptyWorkingSet real</small></div></div>
 
       <div class="appwin" id="appwin">
@@ -344,6 +344,9 @@ footer{border-top:1px solid var(--line);padding:44px 0 34px;background:#0a0a0e}
             <div class="railitem active"><span>⚡</span>Inicio</div>
             <div class="railitem"><span>📋</span>Procesos</div>
             <div class="railitem"><span>🧹</span>Limpieza</div>
+            <div class="railitem"><span>🎮</span>Juegos</div>
+            <div class="railitem"><span>🖥️</span>Salud</div>
+            <div class="railitem"><span>🗑️</span>Apps</div>
           </aside>
           <div class="appcontent">
             <div class="acard">
@@ -351,7 +354,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 34px;background:#0a0a0e}
               <p>Libera recursos para ayudar a tu PC a tener un rendimiento rapido.</p>
               <div class="astats">
                 <div class="astat"><b id="ramPct">50%</b><span>Uso de memoria</span></div>
-                <div class="astat"><b>9,6 MB</b><span>Archivos temporales</span></div>
+                <div class="astat"><b>227,0 MB</b><span>Archivos temporales</span></div>
               </div>
               <button class="fakebtn" id="fakeBtn">Mejorar el rendimiento</button>
               <div class="fakebar"><i id="fakeFill"></i></div>
@@ -362,7 +365,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 34px;background:#0a0a0e}
               <button class="fakebtn dark">Limpiar</button>
             </div>
             <div class="acard mini">
-              <div><b>Procesos</b><p>brave ×13 · discord ×6 · 4,2 GB detectados</p></div>
+              <div><b>Procesos</b><p>brave ×24 · discord ×6 · 2,7 GB detectados</p></div>
               <button class="fakebtn dark">Ver</button>
             </div>
           </div>
@@ -378,7 +381,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 34px;background:#0a0a0e}
     <div class="sec-head reveal">
       <div class="kicker">Características</div>
       <h2>Todo lo que hace tu PC <span class="grad">volver a respirar</span></h2>
-      <p>Tres pestañas, cero bloatware. Cada acción te pide confirmación antes de tocar nada.</p>
+      <p>Seis pestañas, cero bloatware. Cada acción te pide confirmación antes de tocar nada, y nada se borra sin pasar por la barrera de seguridad.</p>
     </div>
 
     <div class="fgrid">
@@ -407,7 +410,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 34px;background:#0a0a0e}
       <article class="fcard reveal">
         <div class="icon">📋</div>
         <h3>Procesos estilo PC Manager</h3>
-        <p>Ve solo las aplicaciones reales (ventana visible o empaquetadas), agrupadas por nombre: brave ×13 = todo el árbol, con su RAM total.</p>
+        <p>Ve solo las aplicaciones reales (ventana visible o empaquetadas), agrupadas por nombre: brave ×24 = todo el árbol, con su RAM total.</p>
         <ul>
           <li>Botón “Finalizar” en cada fila</li>
           <li>Buscador, agrupar/sin agrupar y “Ver todos”</li>
@@ -420,29 +423,66 @@ footer{border-top:1px solid var(--line);padding:44px 0 34px;background:#0a0a0e}
         <h3>Limpieza profunda con Winapp2</h3>
         <p>La base Winapp2.ini viaja dentro del .exe: detecta cachés de navegadores, editores, juegos y más, con el desglose por categoría.</p>
         <ul>
-          <li>152 apps detectadas en el último análisis</li>
-          <li>601,5 MB de basura localizada</li>
+          <li>16.635 archivos y 221 entradas de registro en el último análisis</li>
+          <li>5,48 GB de basura localizada en un minuto</li>
           <li>Escaneo cancelable, se pide confirmación</li>
         </ul>
       </article>
 
       <article class="fcard reveal">
+        <div class="tag">NUEVO</div>
         <div class="icon">🛡️</div>
-        <h3>Seguro por diseño</h3>
-        <p>Nada se borra ni se cierra sin tu sí. Lista de protección del sistema y bloqueos de archivos en uso respetados siempre.</p>
+        <h3>Limpieza con red de seguridad</h3>
+        <p>Antes de borrar, cada archivo pasa por una barrera: lo que no esté claramente en una carpeta temporal se queda donde está. Y nada se borra sin tu “Sí”.</p>
         <ul>
-          <li>Archivos ocupados → se saltan, no rompen nada</li>
-          <li>Confirmación explícita en cada limpieza</li>
+          <li>Jamás toca raíces de disco, System32, WinSxS ni drivers</li>
+          <li>Tus documentos, escritorio, imágenes, videos y música: intocables</li>
+          <li>Registro crítico protegido por prefijo; enlaces y archivos recién modificados, fuera</li>
+          <li>Archivos en uso → se saltan, no rompen nada</li>
         </ul>
       </article>
 
       <article class="fcard reveal">
-        <div class="icon">🪶</div>
-        <h3>Ligero y honesto</h3>
-        <p>WPF + .NET 8 en un único ejecutable autocontenido. Sin telemetría, sin servicios en segundo plano, sin basura en tu PC.</p>
+        <div class="tag">NUEVO</div>
+        <div class="icon">🎧</div>
+        <h3>No corta el video ni los juegos</h3>
+        <p>Si estás viendo algo, jugando o escuchando música, no libera RAM ni borra cachés de GPU: se queda quieto hasta que termines.</p>
         <ul>
-          <li>Ventana fija 456×664, siempre igual</li>
-          <li>MIT: auditable y tuyo para modificar</li>
+          <li>Detecta pantalla completa real (Direct3D) y picos de audio</li>
+          <li>Activo por defecto, sin que tengas que configurar nada</li>
+        </ul>
+      </article>
+
+      <article class="fcard reveal">
+        <div class="tag">NUEVO</div>
+        <div class="icon">🎮</div>
+        <h3>Modo juego</h3>
+        <p>Prepara la PC para jugar en un clic: cierra las apps abiertas, libera RAM y purga la caché de memoria. Lo mínimo para jugar sin reiniciar.</p>
+        <ul>
+          <li>Un botón: cierra apps con cierre ordenado (WM_CLOSE)</li>
+          <li>Te dice cuánta RAM se liberó y cuántos temporales borró</li>
+        </ul>
+      </article>
+
+      <article class="fcard reveal">
+        <div class="tag">NUEVO</div>
+        <div class="icon">🖥️</div>
+        <h3>Salud del sistema</h3>
+        <p>Los ajustes de telemetría y servicios que se comen recursos, con su estado real (activo/inactivo) y una explicación clara de qué hace cada uno.</p>
+        <ul>
+          <li>SysMain, DiagTrack, Xbox y compañía, uno por uno</li>
+          <li>“Optimizar todo” y restaurar cuando quieras</li>
+        </ul>
+      </article>
+
+      <article class="fcard reveal">
+        <div class="tag">NUEVO</div>
+        <div class="icon">🗑️</div>
+        <h3>Desinstalador de apps</h3>
+        <p>Todo lo instalado con su editor, versión y tamaño real, ordenado y con buscador. Desinstalá desde la propia app, sin pasar por Configuración.</p>
+        <ul>
+          <li>El tamaño de cada programa, para decidir rápido</li>
+          <li>Desinstalación con confirmación, nunca silenciosa</li>
         </ul>
       </article>
     </div>
@@ -454,8 +494,8 @@ footer{border-top:1px solid var(--line);padding:44px 0 34px;background:#0a0a0e}
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="kicker">Capturas</div>
-      <h2>Una ventana. <span class="grad">Tres pestañas.</span></h2>
-      <p>Interfaz oscura con acento cian, estilo PC Manager y sin adornos de más.</p>
+      <h2>Una ventana. <span class="grad">Seis pestañas.</span></h2>
+      <p>Interfaz oscura con acento cian, estilo PC Manager y sin adornos de más. Capturas reales de la v1.3.</p>
     </div>
     <div class="shots">
       <figure class="shot reveal">
@@ -463,12 +503,24 @@ footer{border-top:1px solid var(--line);padding:44px 0 34px;background:#0a0a0e}
         <figcaption>Inicio <small>Mejora de rendimiento y limpieza rápida</small></figcaption>
       </figure>
       <figure class="shot reveal">
-        <img src="limpieza.png" alt="Pestaña Limpieza de LunaOptimizer" loading="lazy">
-        <figcaption>Limpieza <small>Limpieza profunda con Winapp2</small></figcaption>
+        <img src="procesos.png" alt="Pestaña Procesos de LunaOptimizer" loading="lazy">
+        <figcaption>Procesos <small>Apps reales agrupadas, con su RAM y botón Cerrar</small></figcaption>
       </figure>
       <figure class="shot reveal">
-        <img src="limpieza-profunda.png" alt="Análisis de limpieza profunda" loading="lazy">
-        <figcaption>Profunda <small>152 apps · 601,5 MB detectados</small></figcaption>
+        <img src="limpieza.png" alt="Pestaña Limpieza de LunaOptimizer" loading="lazy">
+        <figcaption>Limpieza <small>Temporales por app y acceso a la limpieza profunda</small></figcaption>
+      </figure>
+      <figure class="shot reveal">
+        <img src="limpieza-profunda.png" alt="Análisis de limpieza profunda con Winapp2" loading="lazy">
+        <figcaption>Profunda <small>16.635 archivos · 5,48 GB detectados</small></figcaption>
+      </figure>
+      <figure class="shot reveal">
+        <img src="juegos.png" alt="Pestaña Juegos de LunaOptimizer" loading="lazy">
+        <figcaption>Juegos <small>Modo juego en un clic, sin reiniciar</small></figcaption>
+      </figure>
+      <figure class="shot reveal">
+        <img src="salud.png" alt="Pestaña Salud de LunaOptimizer" loading="lazy">
+        <figcaption>Salud <small>Telemetría y servicios, uno por uno</small></figcaption>
       </figure>
     </div>
   </div>
@@ -477,9 +529,9 @@ footer{border-top:1px solid var(--line);padding:44px 0 34px;background:#0a0a0e}
 <!-- ================= STATS ================= -->
 <section class="statsband">
   <div class="wrap sgrid">
-    <div class="sitem reveal"><b class="count" data-count="152">0</b><span>apps con reglas Winapp2</span></div>
-    <div class="sitem reveal"><b class="count" data-count="601" data-suffix=" MB">0</b><span>basura detectada</span></div>
-    <div class="sitem reveal"><b class="count" data-count="42">0</b><span>procesos cerrados en 1 clic</span></div>
+    <div class="sitem reveal"><b class="count" data-count="16635">0</b><span>archivos detectados en un análisis</span></div>
+    <div class="sitem reveal"><b class="count" data-count="5480" data-suffix=" MB">0</b><span>basura localizada en un minuto</span></div>
+    <div class="sitem reveal"><b class="count" data-count="221">0</b><span>entradas de registro detectadas</span></div>
     <div class="sitem reveal"><b class="count" data-count="1" data-suffix=" exe">0</b><span>sin instalador, sin bloat</span></div>
   </div>
 </section>
@@ -490,12 +542,14 @@ footer{border-top:1px solid var(--line);padding:44px 0 34px;background:#0a0a0e}
     <div class="reveal">
       <div class="kicker">Seguridad</div>
       <h2>Potente, pero <span class="grad">con red</span></h2>
-      <p class="lead">Un “reinicio limpio” suena agresivo — y lo es, por eso siempre hay confirmación y una lista dura de lo que jamás se toca.</p>
+      <p class="lead">Un “reinicio limpio” suena agresivo — y lo es, por eso la limpieza va con red: confirmación siempre y una lista dura de lo que jamás se toca.</p>
       <ul class="checklist">
         <li><span class="ck">✓</span><div><b>Lista de protección del sistema.</b> <span>explorer, dwm, csrss, lsass, svchost, Defender y el motor de audio quedan fuera de todo alcance.</span></div></li>
         <li><span class="ck">✓</span><div><b>Solo tu sesión, solo tus apps.</b> <span>Los servicios en sesión 0 y todo lo que vive en C:\Windows se conservan intactos.</span></div></li>
-        <li><span class="ck">✓</span><div><b>Confirmación antes de cada acción.</b> <span>Ni un archivo se borra ni un proceso se cierra sin tu “Sí”.</span></div></li>
-        <li><span class="ck">✓</span><div><b>Archivos en uso → se saltan.</b> <span>Si algo está bloqueado, se ignora; nunca se fuerza ni se corrompe.</span></div></li>
+        <li><span class="ck">✓</span><div><b>Barrera de borrado (SafetyGuard).</b> <span>Raíces de disco, System32, WinSxS, drivers, tus carpetas personales, enlaces (junctions) y archivos modificados hace menos de 5 minutos quedan fuera de cualquier limpieza.</span></div></li>
+        <li><span class="ck">✓</span><div><b>Registro crítico a salvo.</b> <span>Aunque una regla de Winapp2 esté mal formada, las ramas de Windows (SYSTEM, SAM, SECURITY, CLSID…) se protegen por prefijo y nunca se borran.</span></div></li>
+        <li><span class="ck">✓</span><div><b>No interrumpe lo que estás viendo.</b> <span>Si hay video, juego o música en curso, no libera RAM ni borra cachés de GPU: espera a que termines.</span></div></li>
+        <li><span class="ck">✓</span><div><b>Confirmación antes de cada acción.</b> <span>Ni un archivo se borra ni un proceso se cierra sin tu “Sí”, y lo que está en uso se saltea sin forzar nada.</span></div></li>
         <li><span class="ck">✓</span><div><b>Código abierto (MIT).</b> <span>Todo el código está en GitHub: revísalo, compílalo, hazlo tuyo.</span></div></li>
       </ul>
     </div>
@@ -518,14 +572,14 @@ footer{border-top:1px solid var(--line);padding:44px 0 34px;background:#0a0a0e}
       <h2>¿Lista para un <span class="grad">reinicio limpio</span>?</h2>
       <p>Descarga el .exe, ábrelo (pide admin una vez) y deja que LunaOptimizer devuelva tu PC a la calma. Así de rápido.</p>
       <div class="cta" style="justify-content:center">
-        <a class="btn primary" href="https://github.com/juanmarin19/LunaOptimizer/releases/latest" target="_blank" rel="noopener">
-          ⬇ Descargar LunaOptimizer V1
+        <a class="btn primary" href="https://github.com/juanmarin19/LunaOptimizer/releases/tag/V1.3" target="_blank" rel="noopener">
+          ⬇ Descargar LunaOptimizer V1.3
         </a>
         <a class="btn ghost" href="https://github.com/juanmarin19/LunaOptimizer#readme" target="_blank" rel="noopener">
           📖 Leer el README
         </a>
       </div>
-      <div class="hint">Gratis · Open source · Windows 10/11 x64 · Si Windows SmartScreen avisa, es una falsa positiva conocida (sin firma de código)</div>
+      <div class="hint">68,8 MB · Gratis · Open source · Windows 10/11 x64 · Si Windows SmartScreen avisa, es una falsa positiva conocida (el .exe no está firmado)</div>
     </div>
   </div>
 </section>
@@ -599,11 +653,11 @@ if (matchMedia('(pointer:fine)').matches) {
 
 /* ---------- mockup vivo: RAM, barra y mensajes ---------- */
 const hints = [
-  'Listo: 23 procesos optimizados y +812 MB de RAM libre.',
-  'Reinicio limpio: 42 procesos cerrados, 9,2 MB borrados.',
-  'Limpieza profunda: 601,5 MB listos para limpiar.',
-  'Procesos: brave ×13 · discord ×6 · agrupados por nombre.',
-  'Limpieza rapida: 31 temporales borrados, +21 MB de RAM.'
+  'Listo: RAM liberada de verdad, medida antes y después.',
+  'Reinicio limpio: apps cerradas y 227 MB de temporales borrados.',
+  'Limpieza profunda: 5,48 GB listos para limpiar.',
+  'Procesos: brave ×24 · discord ×6 · agrupados por nombre.',
+  'Modo juego: apps cerradas, RAM liberada y caché purgada.'
 ];
 let hi = 0;
 setInterval(() => {
